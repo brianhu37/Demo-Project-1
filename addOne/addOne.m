@@ -3,8 +3,8 @@ function y = addOne(x)
 
 %#codegen
 % Single type output
-y = single(x + 1);
+%y = single(x + 1);
 
 % Double type output
-%y = x + 1;
+y = x + 1;
 end
