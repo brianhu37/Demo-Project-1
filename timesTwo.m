@@ -3,5 +3,4 @@ function y = timesTwo(x)
 
 %#codegen
 y = addOne(x) * 2;
-%test
 end
