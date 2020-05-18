@@ -1,0 +1,7 @@
+# ninja log v5
+20	368	6115340625584201	build/win64/c_mexapi_version.obj	5ad8ea2fdf81fee4
+0	378	6115340625774204	build/win64/rt_nonfinite.obj	d5cc23436a4472ef
+10	383	6115340625774204	build/win64/timesTwo.obj	d1897a751f552fe2
+27	403	6115340625954202	build/win64/_coder_timesTwo_mex.obj	3bc5e0c38dd176a9
+15	405	6115340625964271	build/win64/_coder_timesTwo_info.obj	66886ff74f236bea
+407	716	6115340628714217	timesTwo_mex.mexw64	9bd8f93b194c2918
