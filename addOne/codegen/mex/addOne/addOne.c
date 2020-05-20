@@ -31,7 +31,7 @@ static real_T c_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
   emlrtMsgIdentifier *msgId);
 static real_T emlrt_marshallIn(const emlrtStack *sp, const mxArray *x, const
   char_T *identifier);
-static const mxArray *emlrt_marshallOut(const real_T u);
+static const mxArray *emlrt_marshallOut(const real32_T u);
 
 /* Function Definitions */
 static real_T b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
@@ -67,23 +67,28 @@ static real_T emlrt_marshallIn(const emlrtStack *sp, const mxArray *x, const
   return y;
 }
 
-static const mxArray *emlrt_marshallOut(const real_T u)
+static const mxArray *emlrt_marshallOut(const real32_T u)
 {
   const mxArray *y;
   const mxArray *m;
   y = NULL;
-  m = emlrtCreateDoubleScalar(u);
+  m = emlrtCreateNumericMatrix(1, 1, mxSINGLE_CLASS, mxREAL);
+  *(real32_T *)emlrtMxGetData(m) = u;
   emlrtAssign(&y, m);
   return y;
 }
 
-real_T addOne(real_T x)
+real32_T addOne(real_T x)
 {
+  real32_T y;
+
   /*  Copyright 2014 - 2016 The MathWorks, Inc. */
-  /*  Single type output */
-  /* y = single(x + 1); */
-  /*  Double type output */
-  return x + 1.0;
+  /*  Single type output. This configuration should fail the integration test. */
+  y = (real32_T)(x + 1.0);
+
+  /*  Double type output. This configuration should pass the integration test. */
+  /* y = x + 1; */
+  return y;
 }
 
 void addOne_api(const mxArray * const prhs[1], int32_T nlhs, const mxArray *

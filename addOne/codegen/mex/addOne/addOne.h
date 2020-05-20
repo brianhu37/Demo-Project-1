@@ -22,7 +22,7 @@ extern emlrtCTX emlrtRootTLSGlobal;
 extern emlrtContext emlrtContextGlobal;
 
 /* Function Declarations */
-real_T addOne(real_T x);
+real32_T addOne(real_T x);
 void addOne_api(const mxArray * const prhs[1], int32_T nlhs, const mxArray *
                 plhs[1]);
 void addOne_atexit(void);
